@@ -1,0 +1,96 @@
+{{#if_eq status 10}}
+    <div class="panel panel-primary orderItems" style="pointer-events:none">
+{{else}}
+    <div class="panel panel-primary orderItems">
+{{/if_eq}}
+  <div class="panel-heading orderHead">
+    <div class='orderHead_body'>订单号: {{gesooId}}</div>
+    <div class='orderHead_body'>合作伙伴: {{partnerCode}}</div>
+    {{#if driverName}}
+    <div class='orderHead_body'>派送员: {{driverName}}</div>
+    {{else}}
+    <div class='orderHead_body'>派送员: 暂无</div>
+    {{/if}}
+    <div class='orderHead_body'>
+        {{#if_eq status 10}}
+        <div class='orderButton' style="opacity:0.3">
+        {{else}}
+        <div class='orderButton'>
+        {{/if_eq}}
+            <a class="assign btn btn-primary" href="#" data-toggle="modal" data-target="#assign_Modal">派送</a>
+            <a class="cancel btn btn-danger" href="#">取消</a>
+        </div>
+    </div>
+    <div class='clearfix'></div>
+  </div>
+  <div class="panel-body">
+    <!-- <div class='orderBody'>
+        <div class='orderBody_style1'>客户姓名: {{customerName}}</div>
+        <div class='orderBody_style1'>客户电话: {{customerPhone}}</div>
+        <div class='orderBody_style1'>实际取货时间: {{pickupFinishTime}}</div>
+        <div class='orderBody_style1'>实际送货时间: {{deliveryTime}}</div>
+        <div class='clearfix'></div>
+    </div>
+    <div class='orderBody'>
+        {{#if orderType}}
+            <div class='orderBody_style2'>订单类型: 取件</div>
+        {{else}}
+            <div class='orderBody_style2'>订单类型: 送件</div>
+        {{/if}}
+        <div class='orderBody_style2'>订单重量: {{orderWeight}}</div>
+        <div class='orderBody_style2'>订单体积: {{orderSize}}</div>
+        <div class='orderBody_style1'>取货地址: {{pickupAddress}}</div>
+        <div class='orderBody_style1'>送货地址: {{deliveryAddress}}</div>
+        <div class='clearfix'></div>
+    </div> -->
+    <table class="table table-hover table-bordered">
+        <tbody>
+          <tr class='orderBody'>
+            <td class='orderBody_style1'>客户姓名: {{customerName}}</td>
+            <td class='orderBody_style1'>客户电话: {{customerPhone}}</td>
+            <td class='orderBody_style1'>实际取货时间: {{pickupFinishTime}}</td>
+            <td class='orderBody_style1'>实际送货时间: {{deliveryTime}}</td>
+            <div class='clearfix'></div>
+          </tr>
+          <tr class='orderBody'>
+            {{#if orderType}}
+            <td class='orderBody_style2'>订单类型: 取件</td>
+            {{else}}
+            <td class='orderBody_style2'>订单类型: 送件</td>
+            {{/if}}
+            <td class='orderBody_style2'>订单重量: {{orderWeight}}</td>
+            <td class='orderBody_style2'>订单体积: {{orderSize}}</td>
+            <td class='orderBody_style1'>取货地址: {{pickupAddress}}</td>
+            <td class='orderBody_style1'>送货地址: {{deliveryAddress}}</td>
+            <div class='clearfix'></div>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+{{#if_eq status 10}}
+    <div class="panel-footer panel-info" style="background-color:#FC8C8C">
+{{else}}
+    <div class="panel-footer panel-info">
+{{/if_eq}}
+    {{#equal status 0}}
+    <div>订单状态: 已录入</div>
+    {{/equal}}
+    {{#equal status 1}}
+    <div>订单状态: 已分配</div>
+    {{/equal}}
+    {{#equal status 2}}
+    <div>订单状态: 正在配送</div>
+    {{/equal}}
+    {{#equal status 3}}
+    <div>订单状态: 已送达</div>
+    {{/equal}}
+    {{#equal status 4}}
+    <div>订单状态: 已结算</div>
+    {{/equal}}
+    {{#equal status 10}}
+    <div>订单状态: 已取消</div>
+    {{/equal}}
+  </div>
+</div>
+
+  

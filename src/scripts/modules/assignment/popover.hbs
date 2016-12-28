@@ -1,0 +1,30 @@
+<div id="iw-container">
+    <h3 class="iw-title">当前订单</h3>
+    <div class="iw-content">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div  class="checkbox">
+                    <label>
+                        <input id="sel-all" data-check="true"  type="checkbox">
+                        Select All
+                    </label>
+                </div>
+            </li>
+            {{#each orders}}
+            <li class="list-group-item">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" data-id="{{objectId}}"/>
+                        {{gesooId}}
+                    </label>
+                    <span class="label label-primary">{{assignedDriverId}}</span>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="iw-footer">
+        <button type="button" id="un-assign-btn" class="btn btn-sm btn-primary">Un Assign</button>
+        <button type="button" id="assign-btn" class="btn btn-sm btn-primary">Assign</button>
+    </div>
+</div>

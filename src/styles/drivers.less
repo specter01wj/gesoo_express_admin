@@ -1,0 +1,102 @@
+
+.orderItems {
+    
+    .orderDisabled {
+      pointer-events: none;
+    }
+
+    .orderHead {
+        padding: 5px 10px;
+
+        .orderHead_body {
+            width:20%; 
+            text-align: center;
+            float:left;
+
+            .orderButton {
+                float: right;
+            }
+        }
+        
+    }
+    .orderBody {
+        padding: 5px 10px;
+        .orderBody_style1 {
+            width:25%;
+            float:left;
+
+        }
+        .orderBody_style2 {
+            width:10%;
+            float:left;
+        }
+    }
+}
+
+
+//------driver list modal start
+@base: #158EC6;
+@whiteLight: #fafafa;
+
+.modal-dialog{
+    input[type='radio']{
+      display:none; //hide by default
+      cursor:pointer; //make the cursor a pointer when over the items
+      &:focus,
+      &:active{
+        outline:none;  //remove the annoying outline
+      }
+     & + label{
+       cursor:pointer; 
+       display:inline-block;
+       position: relative;
+       padding-left:25px;
+       margin-right:10px;
+       color: darken(@base, 20%);
+       &:before,
+       &:after{
+        content:'';
+        font-family: helvetica;
+        display:inline-block;
+        width:18px;
+        height:18px;      
+        left:0;
+        bottom:0;
+        text-align:center;
+        position: absolute;
+        }
+       &:before{
+        background-color:@whiteLight;
+        transition:all .3s;
+       }
+       &:after{
+        color:#000;
+        }
+      }
+
+      &:checked + label:before{
+        box-shadow:inset 0 0 0 10px @base;    
+      }
+
+      & + label:before{
+         border-radius:3px; 
+      }
+      
+      & + label:hover:after,
+      &:checked + label:after{
+        content:"\2713";
+        line-height:18px;
+        font-size:14px;
+      }
+      & + label:hover:after{
+        color:darken(@whiteLight, 20%);  
+      }
+      &:checked + label:after,
+      &:checked + label:hover:after{
+        color:#fff;
+      }
+
+    }
+}
+//------driver list modal end
+
